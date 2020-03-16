@@ -1,9 +1,13 @@
 const fs = require("fs");
 const Discord = require("discord.js");
+const { config } = require("dotenv");
 const bot = new Discord.Client();
 
-const token = "Njg3NTk3MDk2ODMyMDczNzY4.XmoE4w.ejlIBY4ioUEfyY-vP3A0u8b_kiE";
 const PREFIX = "_";
+
+config({
+	path: __dirname + "/.env"
+});
 
 bot.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
@@ -36,4 +40,4 @@ bot.on("message", message =>{
     }
 })
 
-bot.login(token);
+bot.login(process.env.TOKEN);
