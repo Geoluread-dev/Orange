@@ -1,13 +1,8 @@
 const fs = require("fs");
 const Discord = require("discord.js");
-const { config } = require("dotenv");
 const bot = new Discord.Client();
 
-const PREFIX = "_";
-
-config({
-	path: __dirname + "/.env"
-});
+const { prefix, token } = require("./config.json");
 
 bot.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync("./commands").filter(file => file.endsWith(".js"));
@@ -22,22 +17,22 @@ bot.on("ready", () =>{
     bot.user.setActivity("y'all fail.", { type: 'WATCHING' })
         .then(presence => console.log(`Activity set to ${presence.activities[0].name}`))
         .catch(console.error);
-})
+});
 
 bot.on("message", message =>{
-    if (!message.content.startsWith(PREFIX) || message.author.bot) return;
+    if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-    const args = message.content.slice(PREFIX.length).split(' ');
+    const args = message.content.slice(prefix.length).split(' ');
     const command = args.shift().toLowerCase();
 
     if (!bot.commands.has(command)) return;
 
     try {
-        bot.commands.get(command).execute(message, args);
+        bot.commands.get(command).execute(Discord, bot, message, args);
     } catch (error) {
         console.error(error);
         message.reply('there was an error trying to execute that command!');
     }
-})
+});
 
-bot.login(process.env.TOKEN);
+bot.login(token);
