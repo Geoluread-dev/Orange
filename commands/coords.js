@@ -13,11 +13,15 @@ module.exports = {
     var x = parseInt(args[0]);
     var y = parseInt(args[1]);
     var z = parseInt(args[2]);
-    const title = args[3];
+
+    let msgArgs = args.slice(3).join(" ");
+    const title = msgArgs;
+
+    const color = message.member.displayHexColor;
 
     let embed = new Discord.MessageEmbed()
       .setTitle(title)
-      .setColor("#ff5733")
+      .setColor(color)
       .setThumbnail(message.author.displayAvatarURL())
       .addField("x", x, true)
       .addField("y", y, true)
@@ -25,8 +29,6 @@ module.exports = {
       .setTimestamp()
       .setFooter("This coord was provided by: " + message.author.username);
 
-    bot.channels.fetch('687770130167627780')
-    .then(channel => channel.send(embed))
-    .catch(console.error);
+    message.channel.send(embed);
   }
 };
