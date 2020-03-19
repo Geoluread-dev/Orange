@@ -2,7 +2,7 @@ module.exports = {
   name: "coords",
   description: "",
   execute(Discord, bot, message, args){
-    if(!message.channel.id === "687772722213945434") return message.channel.send("Command is not send to the right channel");
+    if(!message.channel.id === "690247061571895319") return message.channel.send("Command is not send to the right channel");
     if(!args[0]) return message.channel.send("Make sure to type in the coords. Format x, y, z.");
     if(!args[1]) return message.channel.send("Make sure to type in all the coords. Missing y and z.");
     if(!args[2]) return message.channel.send("Make sure to type in all the coords. Only missing z.");
@@ -14,8 +14,7 @@ module.exports = {
     var y = parseInt(args[1]);
     var z = parseInt(args[2]);
 
-    let msgArgs = args.slice(3).join(" ");
-    const title = msgArgs;
+    let title = args.slice(3).join(" ");
 
     const color = message.member.displayHexColor;
 
@@ -29,6 +28,8 @@ module.exports = {
       .setTimestamp()
       .setFooter("This coord was provided by: " + message.author.username);
 
-    message.channel.send(embed);
+    bot.channels.fetch('688815377215782946')
+      .then(channel => channel.send(embed))
+      .catch(console.error);
   }
 };
