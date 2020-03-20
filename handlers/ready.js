@@ -1,5 +1,4 @@
 const { bot } = require("../index");
-const { prefix } = require("../config.json");
 
 bot.on("ready", () => {
   console.log("Peeling ;)")
