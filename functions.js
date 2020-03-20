@@ -8,7 +8,7 @@ module.exports = (bot) => {
     console.log(`Loading ${jsfiles.length} events...`)
     jsfiles.forEach((f, i) => {
       require(`./handlers/${f}`);
-      console.log(`${i + 1}: ${f} loaded!`)
+      console.log(`${i + 1}: ${f} loaded!`);
     })
   })
 
@@ -19,8 +19,10 @@ module.exports = (bot) => {
     console.log(`Loading ${jsfiles.length} commands...`)
     jsfiles.forEach((f, i) => {
       let command = require(`./commands/${f}`);
+      let permission = require(`./commands/${f}`);
       console.log(`${i + 1}: ${f} loaded!`);
-      bot.commands.set(command.name, command)
+      bot.commands.set(command.name, command);
+      bot.commands.set(command.permission, permission);
     })
   })
 }

@@ -1,6 +1,7 @@
 module.exports = {
   name: "welcome",
   description: "",
+  permission: "Geoluread",
   execute(Discord, bot, message, args){
     let embed = new Discord.MessageEmbed()
       .setAuthor(message.author.username, message.author.displayAvatarURL())

@@ -1,8 +1,8 @@
 module.exports = {
   name: "poll",
   description: "",
+  permission: "Geoluread",
   execute(Discord, bot, message, args) {
-
     if(!message.channel.id === "690247061571895319") return message.channel.send("Command is not send to the right channel");
     if(!args[1]) return message.channel.send("Please give the poll a title");
     let msgArgs = args.slice(0).join(" ")
