@@ -1,7 +1,7 @@
 const fs = require("fs");
 const Discord = require("discord.js");
 const { bot } = require("../index");
-const { prefix } = require("../config.json");
+const prefix = "_";
 
 bot.on("message", message => {
   if (!message.content.startsWith(prefix) || message.author.bot) return;
