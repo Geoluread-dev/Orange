@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const bot = new Discord.Client();
-const { token } = require("./config.json");
+require('dotenv').config();
 require("./functions")(bot);
 
 bot.handlers = new Discord.Collection();
@@ -11,4 +11,4 @@ module.exports = {
 	bot: bot
 };
 
-bot.login(token);
+bot.login(process.env.TOKEN);
