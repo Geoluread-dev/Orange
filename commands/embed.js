@@ -6,10 +6,10 @@ module.exports = {
   permission: ["684373684764278806"],
   execute(Discord, bot, message, args) {
 
-    if(!args[0]) return message.channel.send("Add or set?");
-    if(!args[1]) return message.channel.send("File name needed!");
+    //if(!args[0]) return message.channel.send("Add or set?");
+    if(!args[0]) return message.channel.send("File name needed!");
 
-    const embedFile = args[1];
+    const embedFile = args[0];
     const embedFiles = bot.embeds.get(embedFile);
 
     if(embedFile !== embedFiles.name) {
