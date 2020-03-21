@@ -1,7 +1,7 @@
 module.exports = {
   name: "coords",
   description: "",
-  permission: "everyone",
+  permission: ["679776203074175079"],
   execute(Discord, bot, message, args){
     if(!message.channel.id === "690247061571895319") return message.channel.send("Command is not send to the right channel");
     if(!args[0]) return message.channel.send("Make sure to type in the coords. Format x, y, z.");

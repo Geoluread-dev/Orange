@@ -19,10 +19,20 @@ module.exports = (bot) => {
     console.log(`Loading ${jsfiles.length} commands...`)
     jsfiles.forEach((f, i) => {
       let command = require(`./commands/${f}`);
-      let permission = require(`./commands/${f}`);
       console.log(`${i + 1}: ${f} loaded!`);
       bot.commands.set(command.name, command);
-      bot.commands.set(command.permission, permission);
+    })
+  })
+
+  fs.readdir("./embeds/", (err, files) => {
+    if (err) console.error(err);
+    let jsfiles = files.filter(file => file.endsWith(".js"));
+    if (jsfiles.length <= 0) return console.log("There are no embeds to load...");
+    console.log(`Loading ${jsfiles.length} embeds...`)
+    jsfiles.forEach((f, i) => {
+      let embed = require(`./embeds/${f}`);
+      console.log(`${i + 1}: ${f} loaded!`);
+      bot.embeds.set(embed.name, embed);
     })
   })
 }

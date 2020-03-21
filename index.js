@@ -5,7 +5,7 @@ require("./functions")(bot);
 
 bot.handlers = new Discord.Collection();
 bot.commands = new Discord.Collection();
-bot.embeds = new Discord.MessageEmbed();
+bot.embeds = new Discord.Collection();
 
 module.exports = {
 	bot: bot

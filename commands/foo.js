@@ -1,7 +1,7 @@
 module.exports = {
   name: "foobar",
   description: "",
-  permission: ["Moderators", "Kneusjes", "Yeet", "bar", "foo"],
+  permission: ["679776203074175079"],
   execute(Discord, bot, message, args){
     message.channel.send("bar");
   }
