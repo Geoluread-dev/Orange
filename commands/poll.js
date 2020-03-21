@@ -16,6 +16,6 @@ module.exports = {
     message.channel.send(embed).then(messageReaction => {
       messageReaction.react("👍🏿");
       messageReaction.react("👎🏿");
-    })).catch(console.error);
+    }).catch(console.error);
   }
 }
