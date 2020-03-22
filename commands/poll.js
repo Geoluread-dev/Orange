@@ -4,11 +4,10 @@ module.exports = {
   permission: ["684373684764278806"],
   execute(Discord, bot, message, args) {
     if(!args[0]) return message.channel.send("Please give the poll a title");
-    let msgTitle = args.slice(0).join(" ");
+    let msgTitle = args.slice(0, 1).join(" ");
     let msgArgs = args.slice(1).join(" ");
 
     var embed = new Discord.MessageEmbed()
-      .setAuthor(message.author.username, message.author.displayAvatar())
       .setColor("#ff5733")
       .setTitle(msgTitle)
       .setDescription(msgArgs);
