@@ -18,6 +18,10 @@ module.exports = {
         name: "Server Port",
         value: "25600",
         inline: true
+      },
+      {
+        name: "Seed",
+        value: "64093444"
       }
     ],
     thumbnail: {
