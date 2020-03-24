@@ -1,5 +1,5 @@
 module.exports = {
-  name: "server-info",
+  name: "server",
   embed: {
     title: "**Server Information**",
     description: "Don't forget to add the port in the server ip form. Format:\n > `Server IP : Server Port`.",
@@ -11,12 +11,12 @@ module.exports = {
     fields: [
       {
         name: "Server IP",
-        value: "147.135.160.192",
+        value: "151.80.36.62",
         inline: true
       },
       {
         name: "Server Port",
-        value: "25600",
+        value: "25566",
         inline: true
       },
       {
@@ -37,7 +37,7 @@ module.exports = {
     fields: [
       {
         name: "Copypasta",
-        value: "147.135.160.192:25600"
+        value: "151.80.36.62:25566"
       }
     ],
     footer: {
